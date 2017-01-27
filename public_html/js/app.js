@@ -6,8 +6,9 @@ angular.module('activenetupcomingCoursesForTeachers', []).
     var url = 'http://api.amp.active.com/v2/search';
     url = $sce.trustAsResourceUrl(url);
     
-    $http.jsonp(url, {jsonpCallbackParam: 'callback', 
-        data:{
+    $http.jsonp(url, {
+        jsonpCallbackParam: 'cb', 
+        params:{
           query:'A1.1',
           org_id:'6b1423e1-84b8-4d92-8857-65860e5ace46',
           city:'Toronto',
@@ -15,7 +16,7 @@ angular.module('activenetupcomingCoursesForTeachers', []).
           api_key:'xshzx6dy2mgrghnruj46t9fz'
         }}).
       then(function(data){
-        console.log(data.found);
+        console.log(data);
       }).catch(function(err){
         console.debug(err);
       });
